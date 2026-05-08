@@ -1,0 +1,13 @@
+{
+  "title": "edhiii boi",
+  "categories": ["graphic-design", "film-photography", "motion-graphic"],
+  "year": "2025",
+  "role": "Grahic designer",
+  "description": "Grahic design for Yuta edhiii.",
+  "thumbnail": "thumbnail.mp4",
+  "previewVideo": "thumbnail.mp4",
+  "hero": "thumbnail.mp4",
+  "videos": ["video-01.mp4"],
+  "featured": true,
+  "order": 15
+}

@@ -1,0 +1,13 @@
+{
+  "title": "CASETiFY Metallic Crush",
+  "categories": ["graphic-design", "film-photography", "3d-vfx"],
+  "year": "2025",
+  "role": "Case designs, photo shoot direction, 3D asset and edit",
+  "description": "Case designing and social assets making for Metallic Crush collection.",
+  "thumbnail": "thumbnail.mp4",
+  "previewVideo": "thumbnail.mp4",
+  "hero": "thumbnail.mp4",
+  "images": ["image-01.jpg", "image-02.jpg", "image-03.jpg"],
+  "featured": true,
+  "order": 8
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Tokyo Vitamin",
+  "categories": ["graphic-design", "motion-graphic", "3d-vfx"],
+  "year": "2026",
+  "role": "Creative Direction / Case & Motion Design / 3D Visual",
+  "description": "Visual system for the Tokyo Vitamin x CASETiFY collaboration.",
+  "thumbnail": "thumbnail.jpg",
+  "previewVideo": "preview.mp4",
+  "hero": "hero.mp4",
+  "images": ["image-01.jpg", "image-02.jpg"],
+  "videos": ["preview.mp4", "video-01.mp4", "video-02.mp4", "video-03.mp4"],
+  "featured": true,
+  "order": 1
+}

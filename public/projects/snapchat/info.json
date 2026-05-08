@@ -1,0 +1,13 @@
+{
+  "title": "Snapchat",
+  "categories": ["3d-vfx"],
+  "year": "2024",
+  "role": "3D animator",
+  "description": "3D animation assets for Snapchat.",
+  "thumbnail": "thumbnail.mp4",
+  "previewVideo": "thumbnail.mp4",
+  "hero": "thumbnail.mp4",
+  "videos": ["video-01.mp4"],
+  "featured": true,
+  "order": 17
+}

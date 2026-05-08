@@ -1,0 +1,12 @@
+{
+  "title": "Fragment x CASETiFY",
+  "categories": ["film-photography"],
+  "year": "2026",
+  "role": "Direction, Edit",
+  "description": "Making assets for Fragment x CASETiFY.",
+  "thumbnail": "random",
+  "previewVideo": "random",
+  "images": ["image-01.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg"],
+  "featured": true,
+  "order": 4
+}

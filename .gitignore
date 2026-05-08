@@ -1,0 +1,13 @@
+node_modules
+dist
+.DS_Store
+.env
+.env.local
+.env.*.local
+
+# Source videos over GitHub's 100 MB file limit. Kept locally, excluded from deploy metadata.
+public/projects/bounce-to-tokyo/video-01.mp4
+public/projects/tym/video-02.mp4
+
+# Local media backups
+*.bak

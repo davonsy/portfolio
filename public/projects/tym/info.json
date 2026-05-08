@@ -1,0 +1,14 @@
+{
+  "title": "TYM",
+  "categories": ["graphic-design", "3d-vfx", "film-photography"],
+  "year": "2024",
+  "role": "Director",
+  "description": "Creative direction, design, edit, event planning for TYM.",
+  "thumbnail": "thumbnail.mov",
+  "previewVideo": "thumbnail.mov",
+  "hero": "thumbnail.mov",
+  "videos": ["video-01.mov", "video-03.mp4"],
+  "images": ["image-01.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg"],
+  "featured": true,
+  "order": 11
+}

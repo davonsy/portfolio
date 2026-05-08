@@ -1,0 +1,13 @@
+{
+  "title": "CASETiFY 15th",
+  "categories": ["motion-graphic"],
+  "year": "2026",
+  "role": "Motion graphic design",
+  "description": "Making a social asset for CASETiFY 15th anniversary.",
+  "thumbnail": "thumbnail.mp4",
+  "previewVideo": "thumbnail.mp4",
+  "hero": "thumbnail.mp4",
+  "videos": ["video-01.mp4"],
+  "featured": true,
+  "order": 7
+}

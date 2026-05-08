@@ -1,0 +1,12 @@
+{
+  "title": "Yuta Watanabe",
+  "categories": ["graphic-design"],
+  "year": "2023",
+  "role": "Designer",
+  "description": "Poster design for Yuta Watanabe.",
+  "thumbnail": "thumbnail.png",
+  "previewVideo": "thumbnail.png",
+  "images": ["thumbnail.png"],
+  "featured": true,
+  "order": 14
+}

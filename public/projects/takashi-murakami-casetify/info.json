@@ -1,0 +1,13 @@
+{
+  "title": "Takashi Murakami x CASETiFY",
+  "categories": ["motion-graphic"],
+  "year": "2025",
+  "role": "Motion graphic design",
+  "description": "Motion graphic design for Takashi Murakami.",
+  "thumbnail": "thumbnail.mp4",
+  "previewVideo": "thumbnail.mp4",
+  "hero": "thumbnail.mp4",
+  "videos": ["video-01-new.mp4", "video-02-new.mp4", "video-03-new.mp4"],
+  "featured": true,
+  "order": 3
+}

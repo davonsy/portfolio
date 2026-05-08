@@ -1,0 +1,12 @@
+{
+  "title": "SHARUK",
+  "categories": ["graphic-design"],
+  "year": "2025",
+  "role": "Designer",
+  "description": "Logo design for SHARUK.",
+  "thumbnail": "random",
+  "previewVideo": "random",
+  "images": ["image-01.png", "image-02.png", "image-04.png", "image-05.png", "image-03.png"],
+  "featured": true,
+  "order": 12
+}

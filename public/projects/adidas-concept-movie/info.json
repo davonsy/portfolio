@@ -1,0 +1,12 @@
+{
+  "title": "Adidas Concept movie",
+  "categories": ["motion-graphic"],
+  "year": "2026",
+  "role": "Animator",
+  "description": "Concept Adidas animation.",
+  "thumbnail": "thumbnail.mp4",
+  "previewVideo": "thumbnail.mp4",
+  "hero": "thumbnail.mp4",
+  "featured": true,
+  "order": 10
+}

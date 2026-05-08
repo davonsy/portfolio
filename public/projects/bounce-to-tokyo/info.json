@@ -1,0 +1,14 @@
+{
+  "title": "Bounce to Tokyo (CASETiFY)",
+  "categories": ["film-photography"],
+  "year": "2025",
+  "role": "Creative Lead",
+  "description": "Creative lead for the CASETiFY Bounce to TOKYO.",
+  "thumbnail": "thumbnail.mp4",
+  "previewVideo": "thumbnail.mp4",
+  "hero": "thumbnail.mp4",
+  "images": ["image-01.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg"],
+  "videos": [],
+  "featured": true,
+  "order": 2
+}
