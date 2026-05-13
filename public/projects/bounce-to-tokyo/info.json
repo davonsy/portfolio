@@ -8,7 +8,7 @@
   "previewVideo": "thumbnail.mp4",
   "hero": "thumbnail.mp4",
   "images": ["image-01.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg"],
-  "videos": [],
+  "videos": ["video-01.mp4"],
   "featured": true,
   "order": 2
 }
