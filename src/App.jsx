@@ -644,6 +644,7 @@ function MediaReveal({ activeProject, offset }) {
 }
 
 function ProjectThumbnail({ project, index, onNavigate }) {
+  const [isPreviewing, setIsPreviewing] = useState(false);
   const thumbnailSource = project.thumbnail || project.image || '';
   const thumbnailIsVideo = isVideoSource(thumbnailSource);
   const thumbnailIsYouTube = isYouTubeSource(thumbnailSource);
@@ -654,6 +655,7 @@ function ProjectThumbnail({ project, index, onNavigate }) {
   const videoRef = useRef(null);
 
   const playPreview = () => {
+    setIsPreviewing(true);
     if (thumbnailIsYouTube || isYouTubeSource(previewVideo)) return;
     if ((!hasPreviewVideo && !thumbnailIsVideo) || !videoRef.current) return;
     videoRef.current.currentTime = 0;
@@ -661,6 +663,7 @@ function ProjectThumbnail({ project, index, onNavigate }) {
   };
 
   const pausePreview = () => {
+    setIsPreviewing(false);
     if (!videoRef.current) return;
     videoRef.current.pause();
   };
@@ -679,13 +682,16 @@ function ProjectThumbnail({ project, index, onNavigate }) {
     >
       <div className="project-thumb__image">
         {thumbnailIsYouTube ? (
-          <YouTubeFrame src={thumbnailSource} title={`${project.title} thumbnail`} />
+          <>
+            {project.image && <img src={project.image} alt="" />}
+            {isPreviewing && <YouTubeFrame src={thumbnailSource} title={`${project.title} thumbnail`} />}
+          </>
         ) : thumbnailIsVideo ? (
           <video className="project-thumb__base-video" ref={videoRef} src={thumbnailSource} muted loop playsInline preload="metadata" />
         ) : (
           <img src={thumbnailSource} alt="" />
         )}
-        {showOverlayPreview && isYouTubeSource(previewVideo) ? (
+        {showOverlayPreview && isYouTubeSource(previewVideo) && isPreviewing ? (
           <YouTubeFrame src={previewVideo} title={`${project.title} preview`} />
         ) : showOverlayPreview ? (
           <video ref={videoRef} src={previewVideo} muted loop playsInline preload="metadata" />
