@@ -188,6 +188,17 @@ function getYouTubeEmbedUrl(src = '', active = true) {
   return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
 }
 
+function YouTubeFrame({ src, title = 'Project video', active = true }) {
+  return (
+    <iframe
+      src={getYouTubeEmbedUrl(src, active)}
+      title={title}
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowFullScreen
+    />
+  );
+}
+
 function getProjectPreview(project) {
   const previewVideo = project?.previewVideo || project?.hero || project?.videos?.[0] || '';
   if (isVideoSource(previewVideo)) {
@@ -635,12 +646,15 @@ function MediaReveal({ activeProject, offset }) {
 function ProjectThumbnail({ project, index, onNavigate }) {
   const thumbnailSource = project.thumbnail || project.image || '';
   const thumbnailIsVideo = isVideoSource(thumbnailSource);
+  const thumbnailIsYouTube = isYouTubeSource(thumbnailSource);
   const previewVideo = project.previewVideo || project.hero || project.videos?.[0] || '';
-  const hasPreviewVideo = isVideoSource(previewVideo);
+  const previewIsPlayable = isVideoSource(previewVideo) || isYouTubeSource(previewVideo);
+  const hasPreviewVideo = previewIsPlayable;
   const showOverlayPreview = hasPreviewVideo && previewVideo !== thumbnailSource;
   const videoRef = useRef(null);
 
   const playPreview = () => {
+    if (thumbnailIsYouTube || isYouTubeSource(previewVideo)) return;
     if ((!hasPreviewVideo && !thumbnailIsVideo) || !videoRef.current) return;
     videoRef.current.currentTime = 0;
     videoRef.current.play().catch(() => {});
@@ -664,14 +678,18 @@ function ProjectThumbnail({ project, index, onNavigate }) {
       onTouchEnd={pausePreview}
     >
       <div className="project-thumb__image">
-        {thumbnailIsVideo ? (
+        {thumbnailIsYouTube ? (
+          <YouTubeFrame src={thumbnailSource} title={`${project.title} thumbnail`} />
+        ) : thumbnailIsVideo ? (
           <video className="project-thumb__base-video" ref={videoRef} src={thumbnailSource} muted loop playsInline preload="metadata" />
         ) : (
           <img src={thumbnailSource} alt="" />
         )}
-        {showOverlayPreview && (
+        {showOverlayPreview && isYouTubeSource(previewVideo) ? (
+          <YouTubeFrame src={previewVideo} title={`${project.title} preview`} />
+        ) : showOverlayPreview ? (
           <video ref={videoRef} src={previewVideo} muted loop playsInline preload="metadata" />
-        )}
+        ) : null}
         <span>{String(index + 1).padStart(2, '0')}</span>
       </div>
       <div className="project-thumb__meta">
@@ -747,14 +765,7 @@ function SlideVideo({ src, active, poster }) {
   }, [active]);
 
   if (isYouTubeSource(src)) {
-    return (
-      <iframe
-        src={getYouTubeEmbedUrl(src, active)}
-        title="Project video"
-        allow="autoplay; encrypted-media; picture-in-picture"
-        allowFullScreen
-      />
-    );
+    return <YouTubeFrame src={src} active={active} />;
   }
 
   return <video ref={videoRef} src={src} muted loop playsInline controls={active} poster={poster} />;

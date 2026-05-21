@@ -658,6 +658,7 @@ body.force-intro-reset .loading-terminal {
 
 .project-thumb__image img,
 .project-thumb__image video,
+.project-thumb__image iframe,
 .detail-slide img,
 .detail-slide video,
 .detail-slide iframe,
@@ -678,6 +679,13 @@ body.force-intro-reset .loading-terminal {
   opacity: 0;
   transform: scale(1);
   transition: opacity 0.32s ease, transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), filter 0.4s ease;
+}
+
+.project-thumb__image iframe {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  pointer-events: none;
 }
 
 .project-thumb__image .project-thumb__base-video {
