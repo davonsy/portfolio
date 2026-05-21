@@ -160,6 +160,33 @@ const lerp = (start, end, progress) => start + (end - start) * progress;
 const easeOutQuart = (value) => 1 - Math.pow(1 - value, 4);
 const easeInOutCubic = (value) => (value < 0.5 ? 4 * value ** 3 : 1 - Math.pow(-2 * value + 2, 3) / 2);
 const isVideoSource = (src = '') => /\.(mp4|webm|mov)(\?.*)?$/i.test(src);
+const isYouTubeSource = (src = '') => /(?:youtube\.com\/watch\?|youtu\.be\/|youtube\.com\/embed\/)/i.test(src);
+
+function getYouTubeId(src = '') {
+  try {
+    const url = new URL(src);
+    if (url.hostname.includes('youtu.be')) return url.pathname.replace('/', '');
+    if (url.pathname.includes('/embed/')) return url.pathname.split('/embed/')[1]?.split('/')[0] || '';
+    return url.searchParams.get('v') || '';
+  } catch {
+    return '';
+  }
+}
+
+function getYouTubeEmbedUrl(src = '', active = true) {
+  const videoId = getYouTubeId(src);
+  if (!videoId) return src;
+  const params = new URLSearchParams({
+    autoplay: active ? '1' : '0',
+    mute: '1',
+    loop: '1',
+    playlist: videoId,
+    rel: '0',
+    modestbranding: '1',
+    playsinline: '1',
+  });
+  return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
+}
 
 function getProjectPreview(project) {
   const previewVideo = project?.previewVideo || project?.hero || project?.videos?.[0] || '';
@@ -168,6 +195,13 @@ function getProjectPreview(project) {
       poster: project.thumbnail || project.image || project.images?.[0] || '',
       src: previewVideo,
       type: 'video',
+    };
+  }
+  if (isYouTubeSource(previewVideo)) {
+    return {
+      poster: project.thumbnail || project.image || project.images?.[0] || '',
+      src: previewVideo,
+      type: 'youtube',
     };
   }
 
@@ -589,6 +623,8 @@ function MediaReveal({ activeProject, offset }) {
     <div className="media-reveal" style={{ transform }}>
       {previewSrc && previewType === 'video' ? (
         <video key={previewSrc} src={previewSrc} poster={activeProject?.poster} muted autoPlay loop playsInline />
+      ) : previewSrc && previewType === 'youtube' ? (
+        <iframe key={previewSrc} src={getYouTubeEmbedUrl(previewSrc)} title="Project preview" allow="autoplay; encrypted-media; picture-in-picture" />
       ) : previewSrc ? (
         <img key={previewSrc} src={previewSrc} alt="" />
       ) : null}
@@ -710,6 +746,17 @@ function SlideVideo({ src, active, poster }) {
     videoRef.current.pause();
   }, [active]);
 
+  if (isYouTubeSource(src)) {
+    return (
+      <iframe
+        src={getYouTubeEmbedUrl(src, active)}
+        title="Project video"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowFullScreen
+      />
+    );
+  }
+
   return <video ref={videoRef} src={src} muted loop playsInline controls={active} poster={poster} />;
 }
 
@@ -724,7 +771,7 @@ function ProjectDetailPage({ project, onNavigate }) {
         : primaryCategory === 'motion'
           ? '/motion-graphic'
           : '/graphic-design';
-  const hasHeroVideo = project.hero && isVideoSource(project.hero);
+  const hasHeroVideo = project.hero && (isVideoSource(project.hero) || isYouTubeSource(project.hero));
   const detailImages = project.images?.length ? project.images : project.thumbnail || project.image ? [project.thumbnail || project.image] : [];
   const slides = [
     ...(project.hero
@@ -735,7 +782,7 @@ function ProjectDetailPage({ project, onNavigate }) {
           },
         ]
       : []),
-    ...(project.videos || []).map((src) => ({ type: 'video', src })),
+    ...(project.videos || []).map((src) => ({ type: isVideoSource(src) || isYouTubeSource(src) ? 'video' : 'image', src })),
     ...detailImages.map((src) => ({ type: 'image', src })),
   ].filter((slide, index, array) => slide.src && array.findIndex((item) => item.src === slide.src) === index);
   const safeSlides = slides.length ? slides : [{ type: 'image', src: project.thumbnail || project.image }];
