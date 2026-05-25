@@ -341,11 +341,13 @@ body.intro-scroll-locked {
   pointer-events: auto;
 }
 
-.section-menu button {
+.section-menu button,
+.section-menu a {
   position: relative;
   appearance: none;
   z-index: 1;
   width: 100%;
+  display: block;
   padding: 10px 12px;
   color: rgba(255, 255, 255, 0.78);
   font: inherit;
@@ -355,11 +357,14 @@ body.intro-scroll-locked {
   background: rgba(255, 255, 255, 0.035);
   border: 0;
   cursor: pointer;
+  text-decoration: none;
   transition: background-color 0.24s ease, color 0.24s ease, transform 0.32s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .section-menu button:hover,
-.section-menu button:focus-visible {
+.section-menu button:focus-visible,
+.section-menu a:hover,
+.section-menu a:focus-visible {
   color: #000;
   background: var(--accent-green);
   transform: translateX(4px);

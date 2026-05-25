@@ -354,6 +354,7 @@ function UtilityNav({ brandText, portfolioText, menuText, projects, socialLinks,
             >
               ABOUT / CONTACT
             </button>
+            <a href="https://davonsy-ascii.vercel.app/">ASCII Converter</a>
           </div>
         </div>
         <div className="nav-right">
