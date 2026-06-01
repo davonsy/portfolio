@@ -735,16 +735,15 @@ function PageContent({ page, projects, onNavigate }) {
         <div className="page-kicker">PROFILE / CONTACT</div>
         <h1>{page.title}</h1>
         <p>
-          HI, MY NAME IS DAVONSY, AND I AM A VISUAL ARTIST.
+          HI, I'M DAVONSY.
+          <br />
+          A VISUAL ARTIST BUILDING WORLDS BEYOND THE SCREEN.
           <br />
           <br />
-          DESIGNING ENTIRE WORLDS THROUGH THE POWER OF 3DCG, MATERIALIZING BRAND PHILOSOPHY INTO IMMERSIVE VISUAL EXPERIENCES.
+          Through 3DCG, motion, and visual storytelling, I transform ideas into immersive experiences that connect brands and audiences.
           <br />
           <br />
-          BRIDGING FILM, VISUALS, AND DIGITAL EXPERIENCES TO CREATE MEMORABLE EXPRESSIONS.
-          <br />
-          <br />
-          CRAFTING THE FUTURE OF BRANDS THROUGH REALISM THAT FEELS ALMOST TOUCHABLE.
+          From film to digital environments, every project is crafted to create memorable moments and lasting emotional impact.
         </p>
       </section>
     );
