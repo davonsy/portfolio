@@ -370,7 +370,7 @@ function UtilityNav({ brandText, portfolioText, menuText, projects, socialLinks,
           {time} ({timeZoneLabel})
         </span>
         <span>{worldwideText}</span>
-        <span className="davonsy-line">DAVONSY</span>
+        <span className="davonsy-line">[ SYSTEM ] BUILT BY DAVONSY</span>
       </button>
     </>
   );
