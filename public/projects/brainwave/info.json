@@ -1,0 +1,12 @@
+{
+  "title": "Brainwave",
+  "categories": ["3d-vfx"],
+  "year": "2026",
+  "role": "3D animator",
+  "description": "Social asset for Brainwave.",
+  "thumbnail": "thumbnail.mp4",
+  "previewVideo": "thumbnail.mp4",
+  "hero": "thumbnail.mp4",
+  "featured": true,
+  "order": 21
+}
