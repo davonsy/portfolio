@@ -6,7 +6,7 @@
   "description": "Logo design for Singularity.",
   "thumbnail": "thumbnail.png",
   "previewVideo": "thumbnail.png",
-  "images": ["thumbnail.png"],
+  "images": ["thumbnail.png", "image-01.png", "image-02.png"],
   "featured": true,
   "order": 22
 }
