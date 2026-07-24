@@ -4,8 +4,8 @@
   "year": "2026",
   "role": "Designer",
   "description": "Logo design for Singularity.",
-  "thumbnail": "thumbnail.png",
-  "previewVideo": "thumbnail.png",
+  "thumbnail": "image-02.png",
+  "previewVideo": "image-02.png",
   "images": ["thumbnail.png", "image-01.png", "image-02.png"],
   "featured": true,
   "order": 22
