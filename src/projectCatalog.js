@@ -117,6 +117,8 @@ function parseProjectInfo(path, rawInfo) {
     return null;
   }
 
+  if (info.archived === true || info.hidden === true) return null;
+
   const imageAssets = getProjectAssetEntries(slug, 'image');
   const videoAssets = getProjectAssetEntries(slug, 'video');
   const categories = normalizeCategories(info);
